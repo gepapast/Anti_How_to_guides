@@ -64,6 +64,10 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>Video, if you want(copy and paste the code from the embed option of youtube)</td>
+                                    <td><input type="text" name="video" placeholder="Paste the link from youtube" class="titlearea" value="" /></td>
+                                </tr>
+                                <tr>
                                     <td>Category</td>
                                     <td><select name="category">
                                         <option value="funny">Funny</option>

@@ -1,8 +1,9 @@
 <%-- 
-    Document   : cars
-    Created on : Jan 16, 2014, 2:15:55 PM
+    Document   : search
+    Created on : Feb 14, 2014, 2:59:27 PM
     Author     : George
 --%>
+
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,14 +22,11 @@
 
 </head>
     <body>
-        
-        
-        
     <div id="page" class="container">
 	<div id="header">
 		<div id="logo">
 			<img src="images/sign.jpg" alt="" width="42" height="42" />
-			<h1><a href="index.jsp">AntiHowTo
+			<h1><a href="http://83.212.114.129:8080/finalproject/web/index.jsp">AntiHowTo
                             guides</a></h1>
 		</div>
 		<div id="menu">
@@ -48,13 +46,13 @@
 		
 		<div id="welcome">
 			<div class="title">
-				<h2>Funny Category</h2>
-				<span class="byline">guides for not doing something that are funny</span>
+				<h2>Search results</h2>
+				<span class="byline">below you see the posts that match with your search words</span>
 			</div>
                         <br>
                         <br>
                         <%
-                         
+                            String query = request.getParameter("q");
                             try {
                                 request.setCharacterEncoding("UTF-8");
                                 /* Create string of connection url within specified format with machine
@@ -77,7 +75,7 @@
                                 sending sql statements to the specified database. */
                                 statement = connection.createStatement();
                                 // sql query to retrieve values from the secified table.
-                                String QueryString = "SELECT * from posts WHERE category='cars'";
+                                String QueryString = "SELECT * from posts WHERE title LIKE '%" + query + "%' OR post LIKE '%" + query + "%'";
                                 rs = statement.executeQuery(QueryString);
                                 %>
                 
@@ -92,7 +90,6 @@
 					<h3><%=rs.getString(3)%></h3>
                                         <br>
 					<p><%=rs.getString(4)%></p>
-                                        <%=rs.getString(7)%>
                                         <p>Author: <%=rs.getString(2)%></p>
                                         <p>Posted in category: <%=rs.getString(6)%> </p>
 				</li>

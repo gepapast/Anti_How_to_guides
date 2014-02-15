@@ -25,7 +25,7 @@
 	<div id="header">
 		<div id="logo">
 			<img src="images/sign.jpg" alt="" width="42" height="42" />
-			<h1><a href="http://83.212.114.129:8080/finalproject/web/index.jsp">AntiHowTo
+			<h1><a href="index.jsp">AntiHowTo
                             guides</a></h1>
 		</div>
 		<div id="menu">
@@ -37,7 +37,7 @@
 				<li><a href="cars.jsp" accesskey="4" title="">Cars</a></li>
                         </ul>			
 		</div>
-                <form method="get" action="/search" id="search">
+                <form method="get" action="search.jsp" id="search">
                 <input name="q" type="text" size="40" placeholder="Search..." />
                 </form>
 	</div>
@@ -45,27 +45,13 @@
 		
 		<div id="welcome">
 			<div class="title">
-				<h2>Technology Category</h2>
-				<span class="byline">guides for not doing something relating to technology</span>
+				<h2>Funny Category</h2>
+				<span class="byline">guides for not doing something that are funny</span>
 			</div>
                         <br>
-			<br>
+                        <br>
                         <%
-                        if ((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) {
-                        %>    
- 
-                        
-			<p>If you want to post your own guide or make a comment you have to <strong>log in</strong>,if you are a registered user or <strong>register now</strong> ! </p>
-			<ul class="actions">
-				<li><a href="loginregister.jsp" class="button">log in or register </a></li>
-                        </ul>
-                        
-		</div>
-                <br>
-                    
-                   
-                
-                <%} else {
+                         
                             try {
                                 request.setCharacterEncoding("UTF-8");
                                 /* Create string of connection url within specified format with machine
@@ -103,6 +89,7 @@
 					<h3><%=rs.getString(3)%></h3>
                                         <br>
 					<p><%=rs.getString(4)%></p>
+                                        <%=rs.getString(7)%>
                                         <p>Author: <%=rs.getString(2)%></p>
                                         <p>Posted in category: <%=rs.getString(6)%> </p>
 				</li>
@@ -124,6 +111,22 @@
                         %>
 		</div>
                 <br>
+                  <%  if ((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) {
+                        %>    
+ 
+                        
+			<p>If you want to post your own guide or make a comment you have to <strong>log in</strong>,if you are a registered user or <strong>register now</strong> ! </p>
+			<ul class="actions">
+				<li><a href="loginregister.jsp" class="button">log in or register </a></li>
+                        </ul>
+                        
+		</div>
+                <br>
+                    
+                   
+                
+                <%}
+                else {%>
                     <p>You are logged in as <strong><%=session.getAttribute("userid")%> <strong></p>
                     
                     <p>If you want to write a a new post click here</p>
