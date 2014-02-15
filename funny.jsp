@@ -112,7 +112,7 @@
                         %>
 		</div>
                 <br>
-                  <%  if ((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) {
+                  <%   if ((session.getAttribute("userid") != null) ) {
                         %>    
  
                         

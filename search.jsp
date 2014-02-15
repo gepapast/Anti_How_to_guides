@@ -26,7 +26,7 @@
 	<div id="header">
 		<div id="logo">
 			<img src="images/sign.jpg" alt="" width="42" height="42" />
-			<h1><a href="http://83.212.114.129:8080/finalproject/web/index.jsp">AntiHowTo
+			<h1><a href="index.jsp">AntiHowTo
                             guides</a></h1>
 		</div>
 		<div id="menu">
